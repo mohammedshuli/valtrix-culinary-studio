@@ -1,42 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Valtrix Chef Pro Design System - Premium Catering & Culinary Education Platform */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    --background: 35 100% 97%; /* Ivory/Cream #FFF8F0 */
+    --foreground: 0 0% 20%; /* Charcoal Gray #333333 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 35 100% 97%;
+    --card-foreground: 0 0% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 100% 99%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep Burgundy Primary */
+    --primary: 336 62% 30%; /* Deep Burgundy #7B1E3C */
+    --primary-foreground: 35 100% 97%;
+    --primary-hover: 336 62% 25%;
+    --primary-light: 336 62% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Gold Accents */
+    --secondary: 51 76% 53%; /* Gold #D4AF37 */
+    --secondary-foreground: 0 0% 20%;
+    --secondary-hover: 51 76% 45%;
+    --secondary-light: 51 76% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Charcoal Variations */
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 336 62% 95%;
+    --accent-foreground: 336 62% 30%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 35 100% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 336 62% 30%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-hover)));
+    --gradient-elegant: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Sophisticated Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
+    --shadow-gold: 0 8px 30px -8px hsl(var(--secondary) / 0.3);
+
+    /* Smooth Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +122,80 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-lato scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Hero Button Styles */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-elegant hover:scale-105 transform;
+  }
+
+  .btn-gold {
+    @apply bg-gradient-to-r from-secondary to-secondary-hover text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-gold hover:scale-105 transform;
+  }
+
+  .btn-outline-elegant {
+    @apply border-2 border-primary text-primary bg-transparent px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-elegant;
+  }
+
+  /* Card Styles */
+  .card-elegant {
+    @apply bg-card border border-border rounded-xl p-6 shadow-soft transition-all duration-300 hover:shadow-elegant hover:-translate-y-1;
+  }
+
+  .card-service {
+    @apply bg-gradient-to-br from-background to-muted border border-border rounded-xl p-8 shadow-soft transition-all duration-300 hover:shadow-elegant hover:-translate-y-2 group;
+  }
+
+  /* Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 0.8s ease-out;
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 0.8s ease-out;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
