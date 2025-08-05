@@ -150,7 +150,7 @@
   }
 
   .card-service {
-    @apply bg-gradient-to-br from-background to-muted border border-border rounded-xl p-8 shadow-soft transition-all duration-300 hover:shadow-elegant hover:-translate-y-2 group;
+    @apply bg-gradient-to-br from-background to-muted border border-border rounded-xl p-8 shadow-soft transition-all duration-300 hover:shadow-elegant hover:-translate-y-2;
   }
 
   /* Animations */
