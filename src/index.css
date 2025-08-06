@@ -1,80 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Valtrix Chef Pro Design System - Premium Catering & Culinary Education Platform */
-
+/* Valtrix Chef Pro Design System */
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --background: 35 100% 97%; /* Ivory/Cream #FFF8F0 */
-    --foreground: 0 0% 20%; /* Charcoal Gray #333333 */
-
-    --card: 35 100% 97%;
-    --card-foreground: 0 0% 20%;
-
-    --popover: 35 100% 99%;
-    --popover-foreground: 0 0% 20%;
-
-    /* Deep Burgundy Primary */
-    --primary: 336 62% 30%; /* Deep Burgundy #7B1E3C */
-    --primary-foreground: 35 100% 97%;
-    --primary-hover: 336 62% 25%;
-    --primary-light: 336 62% 85%;
-
-    /* Gold Accents */
-    --secondary: 51 76% 53%; /* Gold #D4AF37 */
-    --secondary-foreground: 0 0% 20%;
-    --secondary-hover: 51 76% 45%;
-    --secondary-light: 51 76% 90%;
-
-    /* Charcoal Variations */
-    --muted: 0 0% 93%;
-    --muted-foreground: 0 0% 45%;
-
-    --accent: 336 62% 95%;
-    --accent-foreground: 336 62% 30%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 35 100% 97%;
-
-    --border: 0 0% 90%;
-    --input: 0 0% 95%;
-    --ring: 336 62% 30%;
-
-    --radius: 0.75rem;
-
-    /* Custom Design Tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-hover)));
-    --gradient-elegant: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    /* Valtrix Chef Pro Color Palette */
+    --burgundy: 345 74% 28%;      /* #8B1538 */
+    --cream: 47 85% 96%;          /* #FBF7F0 */
+    --charcoal: 210 17% 23%;      /* #2D3748 */
+    --gold: 51 74% 52%;           /* #D4AF37 */
+    --soft-gold: 60 84% 77%;      /* #F7E98E */
     
-    /* Sophisticated Shadows */
-    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.2);
-    --shadow-soft: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
-    --shadow-gold: 0 8px 30px -8px hsl(var(--secondary) / 0.3);
-
-    /* Smooth Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    /* Semantic Color Mappings */
+    --background: var(--cream);
+    --foreground: var(--charcoal);
+    --card: 0 0% 100%;
+    --card-foreground: var(--charcoal);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--charcoal);
+    --primary: var(--burgundy);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--soft-gold);
+    --secondary-foreground: var(--charcoal);
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: var(--gold);
+    --accent-foreground: var(--charcoal);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--burgundy);
+    --radius: 0.5rem;
+    
+    /* Visual Effects */
+    --glass-effect: backdrop-filter: blur(10px);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    
+    /* Gradients */
+    --luxury-gradient: linear-gradient(135deg, hsl(var(--burgundy)) 0%, hsl(345 74% 35%) 100%);
+    --gold-gradient: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--soft-gold)) 100%);
+    --cream-gradient: linear-gradient(135deg, hsl(var(--cream)) 0%, hsl(47 85% 92%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--burgundy) / 0.3);
+    --shadow-luxury: 0 20px 40px -10px hsl(var(--burgundy) / 0.4);
+    --shadow-gold: 0 8px 25px -8px hsl(var(--gold) / 0.3);
+    
+    /* Sidebar */
+    --sidebar-background: var(--cream);
+    --sidebar-foreground: var(--charcoal);
+    --sidebar-primary: var(--burgundy);
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-accent: var(--soft-gold);
+    --sidebar-accent-foreground: var(--charcoal);
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: var(--burgundy);
   }
 
   .dark {
@@ -122,48 +106,78 @@
   }
 
   body {
-    @apply bg-background text-foreground font-lato scroll-smooth;
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
   }
-
+  
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+    font-family: "Playfair Display", serif;
   }
 }
 
 @layer components {
-  /* Hero Button Styles */
-  .btn-hero {
-    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-elegant hover:scale-105 transform;
+  .glass-effect {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
   }
-
+  
+  .luxury-gradient {
+    background: var(--luxury-gradient);
+  }
+  
+  .gold-gradient {
+    background: var(--gold-gradient);
+  }
+  
+  .btn-hero {
+    @apply luxury-gradient text-white 
+           px-8 py-4 rounded-lg font-semibold text-lg
+           shadow-lg hover:shadow-xl hover:scale-105 
+           transition-all duration-300 border-0;
+  }
+  
   .btn-gold {
-    @apply bg-gradient-to-r from-secondary to-secondary-hover text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-gold hover:scale-105 transform;
+    @apply gold-gradient text-charcoal px-6 py-3 rounded-lg font-semibold
+           shadow-md hover:shadow-lg hover:scale-105 
+           transition-all duration-300 border-0;
   }
 
   .btn-outline-elegant {
-    @apply border-2 border-primary text-primary bg-transparent px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-elegant;
+    @apply border-2 border-primary text-primary
+           px-6 py-3 rounded-lg font-semibold
+           hover:bg-primary hover:text-white
+           transition-all duration-300;
   }
 
-  /* Card Styles */
   .card-elegant {
-    @apply bg-card border border-border rounded-xl p-6 shadow-soft transition-all duration-300 hover:shadow-elegant hover:-translate-y-1;
+    @apply glass-effect rounded-xl 
+           shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-luxury)]
+           transition-all duration-300 hover:scale-[1.02];
   }
 
   .card-service {
-    @apply bg-gradient-to-br from-background to-muted border border-border rounded-xl p-8 shadow-soft transition-all duration-300 hover:shadow-elegant hover:-translate-y-2;
+    @apply bg-card rounded-xl shadow-lg hover:shadow-xl
+           border border-border overflow-hidden
+           transition-all duration-300 hover:scale-[1.02];
+  }
+
+  /* Currency Formatting */
+  .currency-tzs::before {
+    content: "TSh ";
   }
 
   /* Animations */
   .fade-in-up {
-    animation: fadeInUp 0.8s ease-out;
+    animation: fadeInUp 0.6s ease-out forwards;
   }
 
   .fade-in-left {
-    animation: fadeInLeft 0.8s ease-out;
+    animation: fadeInLeft 0.6s ease-out forwards;
   }
 
   .fade-in-right {
-    animation: fadeInRight 0.8s ease-out;
+    animation: fadeInRight 0.6s ease-out forwards;
   }
 }
 

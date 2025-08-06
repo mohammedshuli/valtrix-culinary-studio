@@ -1,103 +1,120 @@
-import { useState } from 'react';
-import { Menu, X, ChefHat, Phone, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ChefHat, Calendar, Menu, BookOpen, Phone, Image, User, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const navigationItems = [
+  { name: "Home", url: "/", icon: ChefHat },
+  { name: "Catering", url: "/catering", icon: Calendar },
+  { name: "Menu", url: "/menu", icon: Menu },
+  { name: "Courses", url: "/courses", icon: BookOpen },
+  { name: "Gallery", url: "/gallery", icon: Image },
+  { name: "Contact", url: "/contact", icon: Phone },
+];
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Catering Services', href: '/catering' },
-    { name: 'Culinary Courses', href: '/courses' },
-    { name: 'Menu Gallery', href: '/menu' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ];
+const NavigationLink = ({ item, isActive }: { item: typeof navigationItems[0], isActive: boolean }) => (
+  <Link
+    to={item.url}
+    className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+      isActive 
+        ? "bg-primary text-white shadow-md" 
+        : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
+    }`}
+  >
+    <item.icon className="w-4 h-4" />
+    <span className="font-medium">{item.name}</span>
+  </Link>
+);
 
+const WhatsAppButton = () => {
+  const whatsappNumber = "+255655734453";
+  const message = "Hello! I'm interested in Valtrix Chef Pro services.";
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+  
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-soft">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <ChefHat className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-playfair font-bold text-primary">
-              Valtrix Chef Pro
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Contact Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="btn-outline-elegant">
-              <Phone className="h-4 w-4 mr-2" />
-              Call Now
-            </Button>
-            <Button size="sm" className="btn-gold">
-              <MessageCircle className="h-4 w-4 mr-2" />
-              WhatsApp
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-300 font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="flex flex-col space-y-2 px-3 pt-4">
-                <Button variant="outline" size="sm" className="btn-outline-elegant">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call Now
-                </Button>
-                <Button size="sm" className="btn-gold">
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  WhatsApp
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
+    <Button
+      asChild
+      variant="outline"
+      size="sm"
+      className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+    >
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+    </Button>
   );
 };
 
-export default Navbar;
+const BookNowButton = () => (
+  <Button asChild className="btn-hero">
+    <Link to="/contact">Book Now</Link>
+  </Button>
+);
+
+export const Navbar = () => {
+  const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const isActive = (path: string) => location.pathname === path;
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 glass-effect shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo Section */}
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 luxury-gradient rounded-full flex items-center justify-center shadow-lg">
+              <ChefHat className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-playfair font-bold text-primary">Valtrix Chef Pro</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">Professional Catering & Culinary Education</p>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navigationItems.map((item) => (
+              <NavigationLink key={item.name} item={item} isActive={isActive(item.url)} />
+            ))}
+          </nav>
+
+          {/* Action Buttons */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <WhatsAppButton />
+            <BookNowButton />
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="lg:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </Button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden pb-4 border-t border-border">
+            <nav className="flex flex-col space-y-2 mt-4">
+              {navigationItems.map((item) => (
+                <NavigationLink 
+                  key={item.name} 
+                  item={item} 
+                  isActive={isActive(item.url)} 
+                />
+              ))}
+              <div className="flex flex-col space-y-2 pt-4 border-t border-border">
+                <WhatsAppButton />
+                <BookNowButton />
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
