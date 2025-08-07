@@ -51,6 +51,7 @@ const BookNowButton = () => (
   </Button>
 );
 
+// Navigation component for Valtrix Chef Pro
 export const Navbar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
