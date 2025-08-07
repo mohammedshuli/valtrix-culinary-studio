@@ -15,14 +15,14 @@ const navigationItems = [
 const NavigationLink = ({ item, isActive }: { item: typeof navigationItems[0], isActive: boolean }) => (
   <Link
     to={item.url}
-    className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+    className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-300 font-medium text-base ${
       isActive 
         ? "bg-primary text-white shadow-md" 
         : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
     }`}
   >
-    <item.icon className="w-4 h-4" />
-    <span className="font-medium">{item.name}</span>
+    <item.icon className="w-5 h-5" />
+    <span>{item.name}</span>
   </Link>
 );
 
@@ -74,7 +74,7 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center justify-center flex-1 space-x-8">
             {navigationItems.map((item) => (
               <NavigationLink key={item.name} item={item} isActive={isActive(item.url)} />
             ))}
