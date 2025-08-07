@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import { Navbar } from '@/components/Navbar';
 import { Users, Award, Clock, Star, ChefHat, Target, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroChef from '@/assets/hero-chef.jpg';

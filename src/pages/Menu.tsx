@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import { Navbar } from '@/components/Navbar';
 import { Star, Clock, Users, Utensils, Award, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
