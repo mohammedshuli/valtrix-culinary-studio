@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import nyamaChomaSpecial from "@/assets/nyama-choma-special.jpg";
+import pilauYaNyama from "@/assets/pilau-ya-nyama.jpg";
 
 interface MenuItem {
   id: string;
@@ -85,12 +87,31 @@ export const FeaturedMenuItems = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {menuItems.map((item, index) => (
+          {menuItems.map((item, index) => {
+            // Map specific dishes to their images
+            const getItemImage = (itemName: string) => {
+              if (itemName.toLowerCase().includes('nyama choma')) {
+                return nyamaChomaSpecial;
+              } else if (itemName.toLowerCase().includes('pilau')) {
+                return pilauYaNyama;
+              }
+              return null;
+            };
+
+            return (
             <Card key={item.id} className="card-elegant fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="relative overflow-hidden rounded-t-xl">
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-gold/20 flex items-center justify-center">
-                  <div className="text-6xl opacity-20">🍽️</div>
-                </div>
+                {getItemImage(item.name) ? (
+                  <img 
+                    src={getItemImage(item.name)!} 
+                    alt={item.name}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="h-48 bg-gradient-to-br from-primary/20 to-gold/20 flex items-center justify-center">
+                    <div className="text-6xl opacity-20">🍽️</div>
+                  </div>
+                )}
                 <div className="absolute top-4 right-4 bg-gold text-charcoal px-3 py-1 rounded-full text-sm font-semibold">
                   {formatPrice(item.price)}
                 </div>
@@ -122,7 +143,8 @@ export const FeaturedMenuItems = () => {
                 </Button>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center">

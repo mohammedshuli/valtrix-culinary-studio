@@ -1,8 +1,10 @@
 import { Calendar, GraduationCap, Utensils, Users, Clock, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import cateringSpread from '@/assets/catering-spread.jpg';
+import premiumCateringService from '@/assets/premium-catering-service.jpg';
 import culinaryTraining from '@/assets/culinary-training.jpg';
 import weddingCatering from '@/assets/wedding-catering.jpg';
+import corporateCatering from '@/assets/corporate-catering.jpg';
+import privatePartyCatering from '@/assets/private-party-catering.jpg';
 
 const ServicesSection = () => {
   return (
@@ -25,7 +27,7 @@ const ServicesSection = () => {
           <div className="card-service fade-in-left">
             <div className="relative mb-6 rounded-lg overflow-hidden">
               <img 
-                src={cateringSpread} 
+                src={premiumCateringService} 
                 alt="Premium Catering Services" 
                 className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -157,8 +159,12 @@ const ServicesSection = () => {
             </div>
 
             <div className="card-elegant text-center group">
-              <div className="w-full h-48 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg mb-6 flex items-center justify-center">
-                <Users className="h-20 w-20 text-primary" />
+              <div className="relative mb-6 rounded-lg overflow-hidden">
+                <img 
+                  src={corporateCatering} 
+                  alt="Corporate Events Catering" 
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <h4 className="text-xl font-playfair font-semibold text-foreground mb-3">
                 Corporate Events
@@ -172,8 +178,12 @@ const ServicesSection = () => {
             </div>
 
             <div className="card-elegant text-center group">
-              <div className="w-full h-48 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-lg mb-6 flex items-center justify-center">
-                <Calendar className="h-20 w-20 text-primary" />
+              <div className="relative mb-6 rounded-lg overflow-hidden">
+                <img 
+                  src={privatePartyCatering} 
+                  alt="Private Parties Catering" 
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <h4 className="text-xl font-playfair font-semibold text-foreground mb-3">
                 Private Parties
