@@ -1,37 +1,47 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChefHat, Calendar, Menu, BookOpen, Phone, Image, User, X } from "lucide-react";
+import { 
+  ChefHat, 
+  Menu, 
+  X, 
+  Home, 
+  Utensils, 
+  BookOpen, 
+  GraduationCap, 
+  Camera, 
+  Phone,
+  MessageCircle
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigationItems = [
-  { name: "HOME", url: "/" },
-  { name: "OUR SERVICES", url: "/catering" },
-  { name: "MENU", url: "/menu" },
-  { name: "PACKAGES", url: "/courses" },
-  { name: "ABOUT", url: "/about" },
-  { name: "VENUES", url: "/gallery" },
-  { name: "VENDORS", url: "/vendors" },
-  { name: "STAFFING", url: "/staffing" },
-  { name: "FAQ", url: "/faq" },
-  { name: "CONTACT", url: "/contact" },
-  { name: "ORDER NOW", url: "/order" },
+  { name: "Home", url: "/", icon: Home },
+  { name: "Catering", url: "/catering", icon: Utensils },
+  { name: "Menu", url: "/menu", icon: BookOpen },
+  { name: "Courses", url: "/courses", icon: GraduationCap },
+  { name: "Gallery", url: "/gallery", icon: Camera },
+  { name: "Contact", url: "/contact", icon: Phone },
 ];
 
-const NavigationLink = ({ item, isActive }: { item: typeof navigationItems[0], isActive: boolean }) => (
+const NavigationLink = ({ item, isActive, isMobile = false }: { 
+  item: typeof navigationItems[0], 
+  isActive: boolean,
+  isMobile?: boolean 
+}) => (
   <Link
     to={item.url}
-    className={`px-4 py-2 text-sm font-bold tracking-wide transition-all duration-300 ${
+    className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
       isActive 
-        ? "text-primary border-b-2 border-primary" 
-        : "text-charcoal hover:text-primary"
-    } ${item.name === "ORDER NOW" ? "bg-primary text-white px-6 py-2 rounded hover:bg-primary/90" : ""}`}
+        ? "text-primary bg-primary/10" 
+        : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+    } ${isMobile ? "w-full justify-start" : ""}`}
   >
+    <item.icon className="w-4 h-4" />
     <span>{item.name}</span>
   </Link>
 );
 
-
-// Navigation component for Valtrix Chef Pro - Based on Chic Chef Catering design
+// Luxurious Navigation component for Valtrix Chef Pro
 export const Navbar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,59 +49,102 @@ export const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-effect bg-white/80 backdrop-blur-md border-b border-white/20 shadow-elegant">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center py-6">
-          {/* Centered Logo */}
-          <Link to="/" className="flex flex-col items-center space-y-2">
-            <div className="text-center">
-              <h1 className="text-4xl font-playfair font-bold text-charcoal tracking-widest">
-                VALTRIX CHEF
-              </h1>
-              <div className="flex items-center justify-center space-x-2 mt-1">
-                <div className="w-8 h-0.5 bg-primary"></div>
-                <ChefHat className="w-5 h-5 text-primary" />
-                <div className="w-8 h-0.5 bg-primary"></div>
+        <div className="flex items-center justify-between py-4">
+          
+          {/* Left: Logo Section */}
+          <Link to="/" className="flex items-center gap-4">
+            <div className="relative">
+              <div className="w-12 h-12 rounded-full luxury-gradient flex items-center justify-center shadow-luxury">
+                <ChefHat className="w-6 h-6 text-white" />
               </div>
-              <h2 className="text-lg font-bold text-charcoal tracking-[0.3em] mt-1">
-                CATERING
-              </h2>
+              <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-accent border-2 border-white"></div>
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-playfair font-bold text-foreground tracking-wide">
+                Valtrix Chef Pro
+              </h1>
+              <p className="text-xs text-muted-foreground font-medium tracking-wider">
+                Professional Catering & Culinary Education
+              </p>
             </div>
           </Link>
-        </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center justify-center pb-4 border-b border-gray-100">
-          <div className="flex items-center space-x-8">
+          {/* Center: Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1 bg-white/50 rounded-full px-6 py-2 backdrop-blur-sm border border-white/30">
             {navigationItems.map((item) => (
               <NavigationLink key={item.name} item={item} isActive={isActive(item.url)} />
             ))}
-          </div>
-        </nav>
+          </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="lg:hidden flex justify-center pb-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-charcoal hover:text-primary"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </Button>
+          {/* Right: Action Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button 
+              variant="outline" 
+              size="sm"
+              className="border-primary/20 hover:bg-primary/10 hover:border-primary/40 backdrop-blur-sm"
+              asChild
+            >
+              <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp
+              </a>
+            </Button>
+            <Button 
+              size="sm"
+              className="luxury-gradient text-white shadow-lg hover:shadow-luxury transition-all duration-300"
+            >
+              Book Now
+            </Button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="lg:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-foreground hover:text-primary hover:bg-primary/10"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden pb-4 border-t border-gray-100">
-            <nav className="flex flex-col space-y-2 mt-4">
+          <div className="lg:hidden border-t border-white/20 bg-white/90 backdrop-blur-md rounded-b-2xl mx-4 mb-4">
+            <nav className="flex flex-col gap-2 p-4">
               {navigationItems.map((item) => (
                 <NavigationLink 
                   key={item.name} 
                   item={item} 
-                  isActive={isActive(item.url)} 
+                  isActive={isActive(item.url)}
+                  isMobile={true}
                 />
               ))}
+              
+              {/* Mobile Action Buttons */}
+              <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/20">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="w-full justify-start border-primary/20 hover:bg-primary/10"
+                  asChild
+                >
+                  <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button 
+                  size="sm"
+                  className="w-full luxury-gradient text-white"
+                >
+                  Book Now
+                </Button>
+              </div>
             </nav>
           </div>
         )}
