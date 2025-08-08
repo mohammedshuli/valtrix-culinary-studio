@@ -1,5 +1,6 @@
 import { ChefHat, Calendar, GraduationCap, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import heroChef from '@/assets/hero-chef.jpg';
 
 const HeroSection = () => {
@@ -56,11 +57,11 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="btn-hero">
-                Book Catering Service
+              <Button size="lg" className="btn-hero" asChild>
+                <Link to="/contact">Book Catering Service</Link>
               </Button>
-              <Button size="lg" variant="outline" className="btn-outline-elegant">
-                Explore Courses
+              <Button size="lg" variant="outline" className="btn-outline-elegant" asChild>
+                <Link to="/courses">Explore Courses</Link>
               </Button>
             </div>
           </div>

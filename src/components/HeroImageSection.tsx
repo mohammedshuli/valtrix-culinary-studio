@@ -1,4 +1,5 @@
 import heroChef from "@/assets/hero-chef.jpg";
+import { Link } from "react-router-dom";
 
 const HeroImageSection = () => {
   return (
@@ -22,12 +23,12 @@ const HeroImageSection = () => {
             Where passion meets precision in every dish we create
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="btn-hero px-8 py-4 text-lg">
+            <Link to="/catering" className="btn-hero px-8 py-4 text-lg">
               Explore Our Services
-            </button>
-            <button className="btn-outline-elegant px-8 py-4 text-lg">
+            </Link>
+            <Link to="/menu" className="btn-outline-elegant px-8 py-4 text-lg">
               View Our Menu
-            </button>
+            </Link>
           </div>
         </div>
       </div>
