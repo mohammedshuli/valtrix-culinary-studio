@@ -4,8 +4,39 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 import cateringSpread from '@/assets/catering-spread.jpg';
 import weddingCatering from '@/assets/wedding-catering.jpg';
+
+// Menu item images
+import samosaPlatter from '@/assets/menu/samosa-platter.jpg';
+import seafoodCanapes from '@/assets/menu/seafood-canapes.jpg';
+import cheeseCharcuterie from '@/assets/menu/cheese-charcuterie.jpg';
+import chickenTikka from '@/assets/menu/chicken-tikka.jpg';
+import springRolls from '@/assets/menu/spring-rolls.jpg';
+import beefKebabs from '@/assets/menu/beef-kebabs.jpg';
+import grilledTilapia from '@/assets/menu/grilled-tilapia.jpg';
+import nyamaChoma from '@/assets/menu/nyama-choma.jpg';
+import chickenBiryani from '@/assets/menu/chicken-biryani.jpg';
+import vegetarianCurry from '@/assets/menu/vegetarian-curry.jpg';
+import tropicalFruits from '@/assets/menu/tropical-fruits.jpg';
+import chocolateLava from '@/assets/menu/chocolate-lava.jpg';
+import mandazi from '@/assets/menu/mandazi.jpg';
+import tropicalJuices from '@/assets/menu/tropical-juices.jpg';
+import coffeeTea from '@/assets/menu/coffee-tea.jpg';
+
+// Special menu images
+import corporateLunch from '@/assets/menu/corporate-lunch.jpg';
+import tanzanianFeast from '@/assets/menu/tanzanian-feast.jpg';
+
+// Dietary icons
+import vegetarianIcon from '@/assets/menu/vegetarian-icon.jpg';
+import veganIcon from '@/assets/menu/vegan-icon.jpg';
+import halalIcon from '@/assets/menu/halal-icon.jpg';
+import glutenFreeIcon from '@/assets/menu/gluten-free-icon.jpg';
+
+// Pricing background
+import pricingBg from '@/assets/menu/pricing-bg.jpg';
 
 const Menu = () => {
   const menuCategories = {
@@ -16,7 +47,8 @@ const Menu = () => {
         price: 'TSH 8,000',
         serves: '10-12 people',
         dietary: ['Vegetarian'],
-        popular: true
+        popular: true,
+        image: samosaPlatter
       },
       {
         name: 'Seafood Canapés',
@@ -24,35 +56,40 @@ const Menu = () => {
         price: 'TSH 15,000',
         serves: '10-12 people',
         dietary: ['Seafood'],
-        chef: true
+        chef: true,
+        image: seafoodCanapes
       },
       {
         name: 'Cheese & Charcuterie Board',
         description: 'Artisanal selection of local and imported cheeses with cured meats and accompaniments',
         price: 'TSH 25,000',
         serves: '15-20 people',
-        dietary: ['Contains Dairy']
+        dietary: ['Contains Dairy'],
+        image: cheeseCharcuterie
       },
       {
         name: 'Chicken Tikka Skewers',
         description: 'Marinated chicken pieces grilled to perfection with aromatic spices',
         price: 'TSH 12,000',
         serves: '10-12 people',
-        dietary: ['Halal Available']
+        dietary: ['Halal Available'],
+        image: chickenTikka
       },
       {
         name: 'Vegetable Spring Rolls',
         description: 'Fresh vegetables wrapped in crispy pastry, served with sweet chili sauce',
         price: 'TSH 7,000',
         serves: '10-12 people',
-        dietary: ['Vegetarian', 'Vegan Option']
+        dietary: ['Vegetarian', 'Vegan Option'],
+        image: springRolls
       },
       {
         name: 'Beef Kebabs',
         description: 'Tender beef marinated in traditional Tanzanian spices and grilled over charcoal',
         price: 'TSH 18,000',
         serves: '10-12 people',
-        dietary: ['Halal Available']
+        dietary: ['Halal Available'],
+        image: beefKebabs
       }
     ],
     mains: [
@@ -62,7 +99,8 @@ const Menu = () => {
         price: 'TSH 25,000',
         serves: '1 person',
         dietary: ['Seafood', 'Gluten-Free'],
-        popular: true
+        popular: true,
+        image: grilledTilapia
       },
       {
         name: 'Nyama Choma (Grilled Meat)',
@@ -70,21 +108,24 @@ const Menu = () => {
         price: 'TSH 30,000',
         serves: '1 person',
         dietary: ['Halal Available'],
-        chef: true
+        chef: true,
+        image: nyamaChoma
       },
       {
         name: 'Chicken Biryani',
         description: 'Aromatic basmati rice layered with spiced chicken, garnished with fried onions and boiled eggs',
         price: 'TSH 22,000',
         serves: '1 person',
-        dietary: ['Halal Available']
+        dietary: ['Halal Available'],
+        image: chickenBiryani
       },
       {
         name: 'Vegetarian Curry',
         description: 'Mixed vegetables in a rich tomato and coconut curry sauce, served with rice or chapati',
         price: 'TSH 18,000',
         serves: '1 person',
-        dietary: ['Vegetarian', 'Vegan Option', 'Gluten-Free']
+        dietary: ['Vegetarian', 'Vegan Option', 'Gluten-Free'],
+        image: vegetarianCurry
       },
       {
         name: 'Beef Stew with Ugali',
@@ -108,21 +149,24 @@ const Menu = () => {
         price: 'TSH 12,000',
         serves: '8-10 people',
         dietary: ['Vegetarian', 'Vegan', 'Gluten-Free'],
-        popular: true
+        popular: true,
+        image: tropicalFruits
       },
       {
         name: 'Chocolate Lava Cake',
         description: 'Rich chocolate cake with molten center, served with vanilla ice cream',
         price: 'TSH 8,000',
         serves: '1 person',
-        dietary: ['Vegetarian']
+        dietary: ['Vegetarian'],
+        image: chocolateLava
       },
       {
         name: 'Traditional Mandazi',
         description: 'Sweet fried bread dusted with cinnamon sugar and served with honey',
         price: 'TSH 6,000',
         serves: '6-8 people',
-        dietary: ['Vegetarian']
+        dietary: ['Vegetarian'],
+        image: mandazi
       },
       {
         name: 'Tiramisu',
@@ -146,14 +190,16 @@ const Menu = () => {
         price: 'TSH 5,000',
         serves: '1 person',
         dietary: ['Vegetarian', 'Vegan', 'Gluten-Free'],
-        popular: true
+        popular: true,
+        image: tropicalJuices
       },
       {
         name: 'Premium Coffee & Tea Service',
         description: 'Selection of Tanzanian coffee, English breakfast tea, herbal teas, and chai',
         price: 'TSH 4,000',
         serves: '1 person',
-        dietary: ['Vegetarian', 'Vegan Option']
+        dietary: ['Vegetarian', 'Vegan Option'],
+        image: coffeeTea
       },
       {
         name: 'Signature Mocktails',
@@ -197,7 +243,7 @@ const Menu = () => {
     {
       name: 'Corporate Lunch Menu',
       description: 'Professional business lunch options for meetings and conferences',
-      icon: Users,
+      image: corporateLunch,
       courses: [
         'Light appetizer selection',
         'Choice of chicken biryani or vegetarian curry',
@@ -211,7 +257,7 @@ const Menu = () => {
     {
       name: 'Traditional Tanzanian Feast',
       description: 'Authentic local cuisine showcasing the best of Tanzanian flavors',
-      icon: Award,
+      image: tanzanianFeast,
       courses: [
         'Samosa and mandazi selection',
         'Nyama choma with ugali',
@@ -225,32 +271,44 @@ const Menu = () => {
   ];
 
   const MenuCard = ({ item, category }) => (
-    <Card className="card-elegant group relative">
+    <Card className="card-elegant group relative overflow-hidden">
       {item.popular && (
-        <Badge className="absolute -top-2 -right-2 bg-secondary text-secondary-foreground">
+        <Badge className="absolute top-2 left-2 bg-secondary text-secondary-foreground z-10">
           Popular
         </Badge>
       )}
       {item.chef && (
-        <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground">
+        <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground z-10">
           Chef's Special
         </Badge>
       )}
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <div className="flex-1">
-            <CardTitle className="text-lg font-playfair group-hover:text-primary transition-colors">
-              {item.name}
-            </CardTitle>
-            <CardDescription className="mt-2">{item.description}</CardDescription>
-          </div>
-          <div className="text-right ml-4">
-            <div className="text-xl font-bold text-primary">{item.price}</div>
-            <div className="text-sm text-muted-foreground">{item.serves}</div>
+      
+      {/* Image Section */}
+      {item.image && (
+        <div className="relative overflow-hidden h-48">
+          <img 
+            src={item.image} 
+            alt={item.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute top-2 right-2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+            {item.price}
           </div>
         </div>
+      )}
+      
+      <CardHeader className={item.image ? "pb-2" : ""}>
+        <CardTitle className="text-lg font-playfair group-hover:text-primary transition-colors">
+          {item.name}
+        </CardTitle>
+        <CardDescription className="text-sm">{item.description}</CardDescription>
+        {!item.image && (
+          <div className="text-xl font-bold text-primary">{item.price}</div>
+        )}
+        <div className="text-sm text-muted-foreground">{item.serves}</div>
       </CardHeader>
-      <CardContent>
+      
+      <CardContent className="pt-0">
         <div className="flex flex-wrap gap-1 mb-4">
           {item.dietary.map((diet, i) => (
             <Badge key={i} variant="outline" className="text-xs">
@@ -258,8 +316,13 @@ const Menu = () => {
             </Badge>
           ))}
         </div>
-        <Button size="sm" variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground">
-          Add to Quote
+        <Button 
+          asChild
+          size="sm" 
+          variant="outline" 
+          className="w-full group-hover:bg-primary group-hover:text-primary-foreground"
+        >
+          <Link to="/contact">Add to Quote</Link>
         </Button>
       </CardContent>
     </Card>
@@ -390,7 +453,7 @@ const Menu = () => {
                     />
                   ) : (
                     <div className="w-full h-48 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg mb-4 flex items-center justify-center">
-                      <menu.icon className="h-20 w-20 text-primary" />
+                      <ChefHat className="h-20 w-20 text-primary" />
                     </div>
                   )}
                   <CardTitle className="text-xl font-playfair">{menu.name}</CardTitle>
@@ -432,10 +495,10 @@ const Menu = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Vegetarian', description: 'Plant-based options without meat or fish', icon: '🥗' },
-              { name: 'Vegan', description: 'Completely plant-based with no animal products', icon: '🌱' },
-              { name: 'Halal', description: 'Prepared according to Islamic dietary laws', icon: '🕌' },
-              { name: 'Gluten-Free', description: 'No wheat, barley, or rye ingredients', icon: '🌾' },
+              { name: 'Vegetarian', description: 'Plant-based options without meat or fish', image: vegetarianIcon },
+              { name: 'Vegan', description: 'Completely plant-based with no animal products', image: veganIcon },
+              { name: 'Halal', description: 'Prepared according to Islamic dietary laws', image: halalIcon },
+              { name: 'Gluten-Free', description: 'No wheat, barley, or rye ingredients', image: glutenFreeIcon },
               { name: 'Dairy-Free', description: 'No milk, cheese, or dairy products', icon: '🥛' },
               { name: 'Nut-Free', description: 'Safe for those with nut allergies', icon: '🥜' },
               { name: 'Low-Sodium', description: 'Reduced salt for health-conscious diners', icon: '💧' },
@@ -443,7 +506,17 @@ const Menu = () => {
             ].map((diet, index) => (
               <Card key={index} className="card-elegant text-center">
                 <CardHeader>
-                  <div className="text-4xl mb-2">{diet.icon}</div>
+                  {diet.image ? (
+                    <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden">
+                      <img 
+                        src={diet.image} 
+                        alt={diet.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="text-4xl mb-2">{diet.icon}</div>
+                  )}
                   <CardTitle className="text-lg font-playfair">{diet.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -456,8 +529,14 @@ const Menu = () => {
       </section>
 
       {/* Pricing Information */}
-      <section className="py-16 bg-gradient-elegant">
-        <div className="container mx-auto px-4">
+      <section className="py-16 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: `url(${pricingBg})` }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-6">
               Menu Pricing Guide
@@ -469,50 +548,69 @@ const Menu = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="card-elegant text-center">
-              <CardHeader>
+            <Card className="card-elegant text-center backdrop-blur-sm bg-card/90 shadow-xl">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
+                  <Utensils className="h-8 w-8 text-primary-foreground" />
+                </div>
                 <CardTitle className="text-xl font-playfair">Appetizers</CardTitle>
                 <div className="text-3xl font-bold text-primary">TSH 6K - 25K</div>
                 <CardDescription>Per platter (serves 10-20)</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>Minimum order 2 platters</li>
-                  <li>Serving utensils included</li>
-                  <li>Custom portions available</li>
+                  <li>✓ Minimum order 2 platters</li>
+                  <li>✓ Serving utensils included</li>
+                  <li>✓ Custom portions available</li>
+                  <li>✓ Fresh ingredients daily</li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="card-elegant text-center">
-              <CardHeader>
+            <Card className="card-elegant text-center backdrop-blur-sm bg-card/90 shadow-xl transform md:scale-105">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center">
+                  <ChefHat className="h-8 w-8 text-secondary-foreground" />
+                </div>
                 <CardTitle className="text-xl font-playfair">Main Courses</CardTitle>
                 <div className="text-3xl font-bold text-primary">TSH 18K - 30K</div>
                 <CardDescription>Per person</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>Includes rice/ugali & vegetables</li>
-                  <li>Choice of protein</li>
-                  <li>Minimum 10 persons</li>
+                  <li>✓ Includes rice/ugali & vegetables</li>
+                  <li>✓ Choice of premium protein</li>
+                  <li>✓ Minimum 10 persons</li>
+                  <li>✓ Chef-prepared seasonings</li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="card-elegant text-center">
-              <CardHeader>
+            <Card className="card-elegant text-center backdrop-blur-sm bg-card/90 shadow-xl">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-accent-foreground" />
+                </div>
                 <CardTitle className="text-xl font-playfair">Full Packages</CardTitle>
                 <div className="text-3xl font-bold text-primary">TSH 25K - 75K</div>
                 <CardDescription>Per person (complete meal)</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>3-7 course options</li>
-                  <li>Service staff included</li>
-                  <li>Complete table setup</li>
+                  <li>✓ 3-7 course options</li>
+                  <li>✓ Professional service staff</li>
+                  <li>✓ Complete table setup</li>
+                  <li>✓ Event coordination</li>
                 </ul>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-4 bg-card/90 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg">
+              <Star className="h-5 w-5 text-secondary" />
+              <span className="text-sm font-medium">Special discounts available for events over 100 guests</span>
+            </div>
           </div>
         </div>
       </section>
