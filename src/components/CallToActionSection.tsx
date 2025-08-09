@@ -3,7 +3,7 @@ import { Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const CallToActionSection = () => {
-  const whatsappNumber = "+255655734453";
+  const whatsappNumber = "+255746749320";
   const message = "Hello! I'd like to know more about Valtrix Chef Pro services.";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
 

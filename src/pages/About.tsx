@@ -74,7 +74,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center text-primary-foreground">
             <div>
-              <div className="text-4xl font-playfair font-bold mb-2">12+</div>
+              <div className="text-4xl font-playfair font-bold mb-2">10+</div>
               <div className="text-lg">Years Experience</div>
             </div>
             <div>
@@ -82,7 +82,7 @@ const About = () => {
               <div className="text-lg">Events Catered</div>
             </div>
             <div>
-              <div className="text-4xl font-playfair font-bold mb-2">1200+</div>
+              <div className="text-4xl font-playfair font-bold mb-2">200+</div>
               <div className="text-lg">Students Trained</div>
             </div>
             <div>
@@ -113,7 +113,7 @@ const About = () => {
                 alt="Chef Maria Santos" 
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Maria Santos</h3>
+              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Suleiman</h3>
               <p className="text-secondary font-medium mb-3">Head Chef & Founder</p>
               <p className="text-muted-foreground">
                 With 15+ years in international cuisine, Maria established Valtrix to bring 
@@ -125,7 +125,7 @@ const About = () => {
               <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <ChefHat className="h-16 w-16 text-primary" />
               </div>
-              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Ahmed Hassan</h3>
+              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Kassim</h3>
               <p className="text-secondary font-medium mb-3">Culinary Director</p>
               <p className="text-muted-foreground">
                 Specializing in fusion cuisine, Ahmed brings innovative techniques 
@@ -137,10 +137,10 @@ const About = () => {
               <div className="w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <Users className="h-16 w-16 text-primary" />
               </div>
-              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Sarah Johnson</h3>
+              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Mohammed</h3>
               <p className="text-secondary font-medium mb-3">Education Manager</p>
               <p className="text-muted-foreground">
-                Sarah oversees our comprehensive training programs, ensuring students 
+                this chef oversees our comprehensive training programs, ensuring students 
                 receive industry-relevant skills and certification.
               </p>
             </div>

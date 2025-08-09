@@ -86,7 +86,7 @@ export const Navbar = () => {
               className="border-primary/20 hover:bg-primary/10 hover:border-primary/40 backdrop-blur-sm"
               asChild
             >
-              <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/+255746749320" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
               </a>
@@ -95,7 +95,10 @@ export const Navbar = () => {
               size="sm"
               className="luxury-gradient text-white shadow-lg hover:shadow-luxury transition-all duration-300"
             >
-              Book Now
+             <Link to="/catering">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Book Now
+                </Link>
             </Button>
           </div>
 
@@ -133,7 +136,7 @@ export const Navbar = () => {
                   className="w-full justify-start border-primary/20 hover:bg-primary/10"
                   asChild
                 >
-                  <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/+255746749320" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp
                   </a>
@@ -142,7 +145,10 @@ export const Navbar = () => {
                   size="sm"
                   className="w-full luxury-gradient text-white"
                 >
+                 <Link to="/catering">
+                  <Phone className="w-5 h-5 mr-2" />
                   Book Now
+                </Link>
                 </Button>
               </div>
             </nav>
