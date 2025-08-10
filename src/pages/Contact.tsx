@@ -64,7 +64,7 @@ const Contact = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-elegant">
+      <section className="pt-40 pb-16 bg-gradient-elegant">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-6">

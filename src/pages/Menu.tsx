@@ -9,15 +9,15 @@ import cateringSpread from '@/assets/catering-spread.jpg';
 import weddingCatering from '@/assets/wedding-catering.jpg';
 
 // Menu item images
+import butterChickenSliders from '@/assets/menu/butter-chicken-sliders.jpg';
+import masalaTacos from '@/assets/menu/masala-tacos.jpg';
+import charcuterieBoard from '@/assets/menu/charcuterie-board.jpg';
+import tandooriWings from '@/assets/menu/tandoori-wings.jpg';
+import capreseSkewers from '@/assets/menu/caprese-skewers.jpg';
+import miniQuiches from '@/assets/menu/mini-quiches.jpg';
+import grilledSalmon from '@/assets/menu/grilled-salmon.jpg';
+import eggsBenedict from '@/assets/menu/eggs-benedict.jpg';
 import samosaPlatter from '@/assets/menu/samosa-platter.jpg';
-import seafoodCanapes from '@/assets/menu/seafood-canapes.jpg';
-import cheeseCharcuterie from '@/assets/menu/cheese-charcuterie.jpg';
-import chickenTikka from '@/assets/menu/chicken-tikka.jpg';
-import springRolls from '@/assets/menu/spring-rolls.jpg';
-import beefKebabs from '@/assets/menu/beef-kebabs.jpg';
-import grilledTilapia from '@/assets/menu/grilled-tilapia.jpg';
-import nyamaChoma from '@/assets/menu/nyama-choma.jpg';
-import chickenBiryani from '@/assets/menu/chicken-biryani.jpg';
 import vegetarianCurry from '@/assets/menu/vegetarian-curry.jpg';
 import tropicalFruits from '@/assets/menu/tropical-fruits.jpg';
 import chocolateLava from '@/assets/menu/chocolate-lava.jpg';
@@ -42,82 +42,82 @@ const Menu = () => {
   const menuCategories = {
     appetizers: [
       {
+        name: 'Butter Chicken Sliders',
+        description: 'Mini brioche buns stuffed with butter chicken and pickled onions',
+        price: 'TSH 16,000',
+        serves: '10-12 people',
+        dietary: ['Halal Available'],
+        popular: true,
+        image: butterChickenSliders
+      },
+      {
+        name: 'Masala Tacos',
+        description: 'Tacos filled with spiced paneer or chicken tikka, drizzled with mint chutney crema',
+        price: 'TSH 14,000',
+        serves: '10-12 people',
+        dietary: ['Vegetarian Option'],
+        chef: true,
+        image: masalaTacos
+      },
+      {
+        name: 'Charcuterie Board',
+        description: 'Custom charcuterie board crafted with fresh, seasonal ingredients',
+        price: 'TSH 28,000',
+        serves: '15-20 people',
+        dietary: ['Contains Dairy'],
+        image: charcuterieBoard
+      },
+      {
+        name: 'Tandoori Chicken Wings',
+        description: 'Crispy wings marinated in tandoori spices, served with cooling yogurt dip',
+        price: 'TSH 18,000',
+        serves: '10-12 people',
+        dietary: ['Halal Available'],
+        image: tandooriWings
+      },
+      {
+        name: 'Caprese Skewers',
+        description: 'Cherry tomatoes, fresh mozzarella, and basil drizzled with balsamic reduction',
+        price: 'TSH 12,000',
+        serves: '10-12 people',
+        dietary: ['Vegetarian'],
+        image: capreseSkewers
+      },
+      {
         name: 'Samosa Platter',
         description: 'Traditional crispy pastries filled with spiced vegetables and served with tangy chutney',
         price: 'TSH 8,000',
         serves: '10-12 people',
         dietary: ['Vegetarian'],
-        popular: true,
         image: samosaPlatter
-      },
-      {
-        name: 'Seafood Canapés',
-        description: 'Fresh prawns and fish delicately seasoned with coastal spices on crispy toast',
-        price: 'TSH 15,000',
-        serves: '10-12 people',
-        dietary: ['Seafood'],
-        chef: true,
-        image: seafoodCanapes
-      },
-      {
-        name: 'Cheese & Charcuterie Board',
-        description: 'Artisanal selection of local and imported cheeses with cured meats and accompaniments',
-        price: 'TSH 25,000',
-        serves: '15-20 people',
-        dietary: ['Contains Dairy'],
-        image: cheeseCharcuterie
-      },
-      {
-        name: 'Chicken Tikka Skewers',
-        description: 'Marinated chicken pieces grilled to perfection with aromatic spices',
-        price: 'TSH 12,000',
-        serves: '10-12 people',
-        dietary: ['Halal Available'],
-        image: chickenTikka
-      },
-      {
-        name: 'Vegetable Spring Rolls',
-        description: 'Fresh vegetables wrapped in crispy pastry, served with sweet chili sauce',
-        price: 'TSH 7,000',
-        serves: '10-12 people',
-        dietary: ['Vegetarian', 'Vegan Option'],
-        image: springRolls
-      },
-      {
-        name: 'Beef Kebabs',
-        description: 'Tender beef marinated in traditional Tanzanian spices and grilled over charcoal',
-        price: 'TSH 18,000',
-        serves: '10-12 people',
-        dietary: ['Halal Available'],
-        image: beefKebabs
       }
     ],
     mains: [
       {
-        name: 'Grilled Tilapia with Coconut Rice',
-        description: 'Fresh tilapia grilled with lemon and herbs, served with fragrant coconut rice and steamed vegetables',
-        price: 'TSH 25,000',
+        name: 'Mini Quiches',
+        description: 'Assorted mini quiches with fillings like spinach and feta, ham and cheese, or mushroom and goat cheese',
+        price: 'TSH 16,000',
+        serves: '10-12 people',
+        dietary: ['Vegetarian Option'],
+        popular: true,
+        image: miniQuiches
+      },
+      {
+        name: 'Grilled Salmon',
+        description: 'Fresh salmon fillet with seasonal herbs and lemon butter, served with coconut rice',
+        price: 'TSH 32,000',
         serves: '1 person',
         dietary: ['Seafood', 'Gluten-Free'],
-        popular: true,
-        image: grilledTilapia
-      },
-      {
-        name: 'Nyama Choma (Grilled Meat)',
-        description: 'Traditional Tanzanian barbecued beef or goat meat with ugali and kachumbari',
-        price: 'TSH 30,000',
-        serves: '1 person',
-        dietary: ['Halal Available'],
         chef: true,
-        image: nyamaChoma
+        image: grilledSalmon
       },
       {
-        name: 'Chicken Biryani',
-        description: 'Aromatic basmati rice layered with spiced chicken, garnished with fried onions and boiled eggs',
-        price: 'TSH 22,000',
+        name: 'Eggs Benedict',
+        description: 'Poached eggs on toasted English muffins topped with hollandaise sauce and smoked salmon',
+        price: 'TSH 18,000',
         serves: '1 person',
-        dietary: ['Halal Available'],
-        image: chickenBiryani
+        dietary: ['Contains Dairy'],
+        image: eggsBenedict
       },
       {
         name: 'Vegetarian Curry',
