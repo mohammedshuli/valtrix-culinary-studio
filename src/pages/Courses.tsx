@@ -129,7 +129,7 @@ const Courses = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-elegant">
+      <section className="pt-32 pb-16 bg-gradient-elegant">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="fade-in-left">
