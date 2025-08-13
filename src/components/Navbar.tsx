@@ -67,7 +67,7 @@ export const Navbar = () => {
                 Valtrix Chef Pro
               </h1>
               <p className="text-xs text-muted-foreground font-medium tracking-wider">
-                Professional Catering & Culinary Education
+                Professional Catering 
               </p>
             </div>
           </Link>

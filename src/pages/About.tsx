@@ -110,13 +110,13 @@ const About = () => {
             <div className="card-elegant text-center">
               <img 
                 src={culinaryTraining} 
-                alt="Chef Maria Santos" 
+                alt="Chef Suleiman" 
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
               <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Suleiman</h3>
-              <p className="text-secondary font-medium mb-3">Head Chef & Founder</p>
+              <p className="text-primary font-medium mb-3">Head Chef & Founder</p>
               <p className="text-muted-foreground">
-                With 15+ years in international cuisine, Maria established Valtrix to bring 
+                With 15+ years in international cuisine, Suleiman established Valtrix to bring 
                 world-class culinary standards to Tanzania.
               </p>
             </div>
@@ -126,7 +126,7 @@ const About = () => {
                 <ChefHat className="h-16 w-16 text-primary" />
               </div>
               <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Kassim</h3>
-              <p className="text-secondary font-medium mb-3">Culinary Director</p>
+              <p className="text-primary font-medium mb-3">Culinary Director</p>
               <p className="text-muted-foreground">
                 Specializing in fusion cuisine, Ahmed brings innovative techniques 
                 and African flavors to modern culinary education.
@@ -138,7 +138,7 @@ const About = () => {
                 <Users className="h-16 w-16 text-primary" />
               </div>
               <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Mohammed</h3>
-              <p className="text-secondary font-medium mb-3">Education Manager</p>
+              <p className="text-primary font-medium mb-3">Education Manager</p>
               <p className="text-muted-foreground">
                 this chef oversees our comprehensive training programs, ensuring students 
                 receive industry-relevant skills and certification.

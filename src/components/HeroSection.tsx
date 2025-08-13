@@ -74,7 +74,7 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Events Catered</div>
               </div>
               <div className="card-elegant text-center">
-                <div className="text-3xl font-playfair font-bold text-secondary mb-2">15+</div>
+                <div className="text-3xl font-playfair font-bold text-primary mb-2">15+</div>
                 <div className="text-sm text-muted-foreground">Expert Chefs</div>
               </div>
               <div className="card-elegant text-center">
@@ -82,7 +82,7 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Students Trained</div>
               </div>
               <div className="card-elegant text-center">
-                <div className="text-3xl font-playfair font-bold text-secondary mb-2">98%</div>
+                <div className="text-3xl font-playfair font-bold text-primary mb-2">98%</div>
                 <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
               </div>
             </div>
@@ -96,7 +96,7 @@ const HeroSection = () => {
                 Get 20% off your first catering booking and free tasting session
               </p>
               <Button variant="secondary" className="btn-gold">
-                Claim Offer Now
+                 <Link to="/contact">Claim your offer!</Link>
               </Button>
             </div>
           </div>

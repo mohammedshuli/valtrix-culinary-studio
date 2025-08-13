@@ -12,7 +12,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+255 123 456 789', '+255 987 654 321'],
+      details: ['+255 746 749 320', '+255 746 749 320'],
       action: 'Call Now'
     },
     {
@@ -24,7 +24,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      details: ['Msimbazi Street, Kariakoo', 'Dar es Salaam, Tanzania'],
+      details: ['Mbezi Street, Kunduchi', 'Dar es Salaam, Tanzania'],
       action: 'Get Directions'
     },
     {
@@ -38,23 +38,23 @@ const Contact = () => {
   const offices = [
     {
       name: 'Main Campus',
-      address: 'Msimbazi Street, Kariakoo',
+      address: 'Mbezi beach, Kunduchi',
       city: 'Dar es Salaam',
-      phone: '+255 123 456 789',
+      phone: '+255 746 749 320',
       type: 'Training & Administration'
     },
     {
       name: 'Catering Office',
-      address: 'Mikocheni Business Center',
+      address: 'Mbezi Business Center',
       city: 'Dar es Salaam',
-      phone: '+255 987 654 321',
+      phone: '+255 746 749 320',
       type: 'Event Planning & Catering'
     },
     {
-      name: 'Arusha Branch',
-      address: 'Sokoine Road',
-      city: 'Arusha',
-      phone: '+255 456 789 123',
+      name: 'kunduchi Branch',
+      address: 'Bagamoyo Road',
+      city: 'Dar es salaam',
+      phone: '+255 746 749 320',
       type: 'Regional Training Center'
     }
   ];
@@ -76,8 +76,10 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="btn-hero">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                WhatsApp Chat
+                <a href="https://wa.me/+255746749320" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp
+              </a>
               </Button>
               <Button variant="outline" className="btn-outline-elegant">
                 <Phone className="h-5 w-5 mr-2" />
@@ -166,6 +168,7 @@ const Contact = () => {
                       <SelectItem value="private">Private Parties</SelectItem>
                       <SelectItem value="courses">Culinary Courses</SelectItem>
                       <SelectItem value="consultation">Free Consultation</SelectItem>
+                      <SelectItem value="private">Others</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -183,10 +186,10 @@ const Contact = () => {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="10-25">10-25 guests</SelectItem>
-                      <SelectItem value="26-50">26-50 guests</SelectItem>
-                      <SelectItem value="51-100">51-100 guests</SelectItem>
-                      <SelectItem value="101-200">101-200 guests</SelectItem>
-                      <SelectItem value="200+">200+ guests</SelectItem>
+                      <SelectItem value="26-50">26-150 guests</SelectItem>
+                      <SelectItem value="51-100">50-200 guests</SelectItem>
+                      <SelectItem value="101-200">250-300 guests</SelectItem>
+                      <SelectItem value="200+">300+ guests</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -368,12 +371,14 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="btn-hero">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Start WhatsApp Chat
+                <a href="https://wa.me/+255746749320" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp
+              </a>
               </Button>
               <Button variant="outline" className="btn-outline-elegant">
                 <Phone className="h-5 w-5 mr-2" />
-                Call +255 123 456 789
+                Call +255 746 749 320
               </Button>
             </div>
           </div>
