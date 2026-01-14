@@ -168,7 +168,7 @@ const Contact = () => {
                       <SelectItem value="private">Private Parties</SelectItem>
                       <SelectItem value="courses">Culinary Courses</SelectItem>
                       <SelectItem value="consultation">Free Consultation</SelectItem>
-                      <SelectItem value="private">Others</SelectItem>
+                      <SelectItem value="Others">Others</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -259,6 +259,19 @@ const Contact = () => {
                   </Button>
                 </CardContent>
               </Card>
+
+              <Card className="card-elegant">
+                <CardHeader>
+                  <CardTitle className="text-xl font-playfair">Customize Your Menu</CardTitle>
+                  <CardDescription>
+                          your event needs and get a personalized quote.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button className="btn-gold w-full">Schedule</Button>
+                </CardContent>
+              </Card>
+
             </div>
           </div>
         </div>

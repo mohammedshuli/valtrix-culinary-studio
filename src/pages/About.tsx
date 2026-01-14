@@ -1,8 +1,13 @@
 import { Navbar } from '@/components/Navbar';
 import { Users, Award, Clock, Star, ChefHat, Target, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroChef from '@/assets/hero-chef.jpg';
+import { Link } from 'react-router-dom';
+import heroChef from '@/assets/about01.jpg';
 import culinaryTraining from '@/assets/culinary-training.jpg';
+import culinary from '@/assets/kassim.jpg';
+import shuli from '@/assets/shuli.jpg';
+
+
 
 const About = () => {
   return (
@@ -15,16 +20,16 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="fade-in-left">
               <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-6">
-                About <span className="text-primary">Valtrix Chef Pro</span>
+                About <span className="text-primary">Valtrix Pro Chef</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 For over a decade, we've been Tanzania's premier destination for exceptional catering services 
                 and professional culinary education, combining traditional techniques with modern innovation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="btn-hero">Our Story</Button>
                 <Button variant="outline" className="btn-outline-elegant">Meet Our Team</Button>
-              </div>
+              </div> */}
             </div>
             <div className="fade-in-right">
               <img 
@@ -114,7 +119,7 @@ const About = () => {
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
               <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Suleiman</h3>
-              <p className="text-primary font-medium mb-3">Head Chef & Founder</p>
+              <p className="text-primary font-medium mb-3">Head Chef </p>
               <p className="text-muted-foreground">
                 With 15+ years in international cuisine, Suleiman established Valtrix to bring 
                 world-class culinary standards to Tanzania.
@@ -122,21 +127,25 @@ const About = () => {
             </div>
 
             <div className="card-elegant text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <ChefHat className="h-16 w-16 text-primary" />
-              </div>
+            <img 
+                src={culinary}
+                alt="Chef kassim" 
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
               <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Kassim</h3>
               <p className="text-primary font-medium mb-3">Culinary Director</p>
               <p className="text-muted-foreground">
-                Specializing in fusion cuisine, Ahmed brings innovative techniques 
+                Specializing in fusion cuisine, kassim brings innovative techniques 
                 and African flavors to modern culinary education.
               </p>
             </div>
 
             <div className="card-elegant text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Users className="h-16 w-16 text-primary" />
-              </div>
+            <img 
+                src={culinaryTraining} 
+                alt="Chef mohammed" 
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
               <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Mohammed</h3>
               <p className="text-primary font-medium mb-3">Education Manager</p>
               <p className="text-muted-foreground">
@@ -144,6 +153,36 @@ const About = () => {
                 receive industry-relevant skills and certification.
               </p>
             </div>
+
+            <div className="card-elegant text-center">
+            <img 
+                src={culinaryTraining} 
+                alt="Chef Mussa" 
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Mussa</h3>
+              <p className="text-primary font-medium mb-3">Founder</p>
+              <p className="text-muted-foreground">
+              With 15+ years in international cuisine,Chef Mussa established Valtrix to bring 
+              world-class culinary standards to Tanzania.
+              </p>
+            </div>
+
+            <div className="card-elegant text-center">
+            <img 
+                src={shuli} 
+                alt="Chef Shuli" 
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-playfair font-bold text-foreground mb-2">Chef Shuli</h3>
+              <p className="text-primary font-medium mb-3">Event Manager</p>
+              <p className="text-muted-foreground">
+                this chef oversees our comprehensive and proper planning, ensuring event
+                receive memorable dining experiences 
+                  with exceptional cuisine and impeccable service..
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
@@ -194,8 +233,16 @@ const About = () => {
               we're here to help you achieve your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="btn-hero">Book Catering Service</Button>
-              <Button variant="outline" className="btn-outline-elegant">Explore Courses</Button>
+              <Button className="btn-hero">
+               <Link to="/contact">
+                Book Catering Service
+                </Link>
+                </Button>
+              <Button variant="outline" className="btn-outline-elegant">
+              <Link to="/courses">
+              Explore Courses
+                </Link>
+                </Button>
             </div>
           </div>
         </div>

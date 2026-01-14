@@ -629,7 +629,8 @@ const Menu = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="btn-hero">
                 <ChefHat className="h-5 w-5 mr-2" />
-                Request Custom Menu
+                <Link to="/Contact">Request Custom Menu</Link>
+                
               </Button>
               <Button variant="outline" className="btn-outline-elegant">Schedule Tasting</Button>
             </div>

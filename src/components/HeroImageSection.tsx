@@ -1,4 +1,4 @@
-import heroChef from "@/assets/hero-chef.jpg";
+import heroChef from "@/assets/hero.jpg";
 import { Link } from "react-router-dom";
 
 const HeroImageSection = () => {

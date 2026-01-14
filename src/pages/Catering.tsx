@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import cateringSpread from '@/assets/catering-spread.jpg';
 import weddingCatering from '@/assets/wedding-catering.jpg';
+import { Link } from 'react-router-dom';
 
 const Catering = () => {
   const packages = [
@@ -98,10 +99,10 @@ const Catering = () => {
                 From intimate gatherings to grand celebrations, our expert chefs create memorable 
                 dining experiences with exceptional cuisine and impeccable service.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="btn-hero">Get Quote</Button>
                 <Button variant="outline" className="btn-outline-elegant">View Menu</Button>
-              </div>
+              </div> */}
             </div>
             <div className="fade-in-right">
               <img 
@@ -162,7 +163,7 @@ const Catering = () => {
       </section>
 
       {/* Packages Section */}
-      <section className="py-16 bg-gradient-elegant">
+      {/* <section className="py-16 bg-gradient-elegant">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-6">
@@ -210,10 +211,10 @@ const Catering = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Menu Categories */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-6">
@@ -326,7 +327,7 @@ const Catering = () => {
             </TabsContent>
           </Tabs>
         </div>
-      </section>
+      </section> */}
 
       {/* Process Section */}
       <section className="py-16 bg-gradient-elegant">
@@ -374,10 +375,15 @@ const Catering = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="btn-hero">
-                <Phone className="h-5 w-5 mr-2" />
+              <Link to="/Contact">
                 Get Free Quote
+                </Link>
               </Button>
-              <Button variant="outline" className="btn-outline-elegant">Schedule Tasting</Button>
+              <Button variant="outline" className="btn-outline-elegant">
+               <Link to="/contact">
+               Schedule Tasting
+               </Link>
+                </Button>
             </div>
           </div>
         </div>

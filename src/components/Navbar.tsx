@@ -10,14 +10,15 @@ import {
   GraduationCap, 
   Camera, 
   Phone,
-  MessageCircle
+  MessageCircle,
+  Users
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigationItems = [
   { name: "Home", url: "/", icon: Home },
-  { name: "About", url: "/about", icon: Home },
-  { name: "Catering", url: "/catering", icon: Utensils },
+  { name: "About", url: "/about", icon: Users },
+  { name: "Services", url: "/catering", icon: Utensils },
   { name: "Menu", url: "/menu", icon: BookOpen },
   { name: "Courses", url: "/courses", icon: GraduationCap },
   { name: "Gallery", url: "/gallery", icon: Camera },
@@ -64,7 +65,7 @@ export const Navbar = () => {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-playfair font-bold text-foreground tracking-wide">
-                Valtrix Chef Pro
+                Valtrix Pro Chef
               </h1>
               <p className="text-xs text-muted-foreground font-medium tracking-wider">
                 Professional Catering 
