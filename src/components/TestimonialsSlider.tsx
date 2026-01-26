@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { supabase } from "@/integrations/supabase/client";
+// Supabase removed: use local mock testimonials instead
 
 interface Testimonial {
   id: string;
@@ -33,20 +33,28 @@ export const TestimonialsSlider = () => {
   }, [testimonials.length]);
 
   const fetchTestimonials = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .eq('is_featured', true)
-        .order('created_at', { ascending: false });
+    // Replace Supabase fetch with local mock data for now
+    const mockTestimonials: Testimonial[] = [
+      {
+        id: 't1',
+        client_name: 'Asha M.',
+        event_type: 'Wedding',
+        rating: 5,
+        review_text: 'Absolutely incredible service and delicious food — our guests could not stop complimenting!',
+        service_date: '2024-08-12'
+      },
+      {
+        id: 't2',
+        client_name: 'David K.',
+        event_type: 'Corporate Lunch',
+        rating: 4,
+        review_text: 'Professional and prompt. The menu suited our needs perfectly.',
+        service_date: '2024-06-05'
+      }
+    ];
 
-      if (error) throw error;
-      setTestimonials(data || []);
-    } catch (error) {
-      console.error('Error fetching testimonials:', error);
-    } finally {
-      setLoading(false);
-    }
+    setTestimonials(mockTestimonials);
+    setLoading(false);
   };
 
   const nextTestimonial = () => {

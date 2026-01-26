@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { supabase } from "@/integrations/supabase/client";
+// Supabase removed: using local mock data instead
 import { Link } from "react-router-dom";
 import nyamaChomaSpecial from "@/assets/nyama-choma-special.jpg";
 import pilauYaNyama from "@/assets/pilau-ya-nyama.jpg";
@@ -26,20 +26,38 @@ export const FeaturedMenuItems = () => {
   }, []);
 
   const fetchFeaturedMenuItems = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('menu_items')
-        .select('*')
-        .eq('is_signature', true)
-        .limit(3);
+    // Replace Supabase fetch with local mock data for now
+    const mockData: MenuItem[] = [
+      {
+        id: '1',
+        name: 'Nyama Choma Special',
+        description: 'Smoked and grilled meats served with kachumbari and sides',
+        price: 18000,
+        image_url: nyamaChomaSpecial,
+        prep_time: 45,
+        difficulty_level: 'medium'
+      },
+      {
+        id: '2',
+        name: 'Pilau ya Nyama',
+        description: 'Aromatic rice dish cooked with tender beef and spices',
+        price: 16000,
+        image_url: pilauYaNyama,
+        prep_time: 60,
+        difficulty_level: 'hard'
+      },
+      {
+        id: '3',
+        name: 'Grilled Tilapia',
+        description: 'Whole tilapia grilled with lemon-herb butter and spices',
+        price: 15000,
+        prep_time: 35,
+        difficulty_level: 'easy'
+      }
+    ];
 
-      if (error) throw error;
-      setMenuItems(data || []);
-    } catch (error) {
-      console.error('Error fetching menu items:', error);
-    } finally {
-      setLoading(false);
-    }
+    setMenuItems(mockData);
+    setLoading(false);
   };
 
   const formatPrice = (price: number) => {

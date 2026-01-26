@@ -183,6 +183,38 @@ const Menu = () => {
         dietary: ['Vegetarian', 'Gluten-Free']
       }
     ],
+      fruitsAndSalads: [
+        {
+          name: 'Tropical Fruit Platter',
+          description: 'Fresh seasonal fruits including mangoes, pineapples, and papayas, beautifully arranged',
+          price: 'TSH 12,000',
+          serves: '8-10 people',
+          dietary: ['Vegetarian', 'Vegan', 'Gluten-Free'],
+          popular: true
+        },
+        {
+          name: 'Kachumbari Salad',
+          description: 'Traditional East African salad with fresh tomatoes, onions, cilantro, and a lime-chili dressing',
+          price: 'TSH 6,000',
+          serves: '1 person',
+          dietary: ['Vegetarian', 'Vegan', 'Gluten-Free']
+        },
+        {
+          name: 'Quinoa & Roasted Veggie Salad',
+          description: 'Nutrient-rich quinoa with roasted bell peppers, zucchini, and a lemon-tahini dressing',
+          price: 'TSH 14,000',
+          serves: '1 person',
+          dietary: ['Vegetarian', 'Vegan', 'Gluten-Free'],
+          chef: true
+        },
+        {
+          name: 'Classic Caesar Salad',
+          description: 'Crisp romaine lettuce, garlic croutons, and parmesan cheese tossed in creamy Caesar dressing',
+          price: 'TSH 15,000',
+          serves: '1 person',
+          dietary: ['Vegetarian Option']
+        }
+      ],
     beverages: [
       {
         name: 'Fresh Tropical Juice Bar',
@@ -374,7 +406,7 @@ const Menu = () => {
           </div>
 
           <Tabs defaultValue="appetizers" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-6">
               <TabsTrigger value="appetizers" className="flex items-center gap-2">
                 <Utensils className="h-4 w-4" />
                 Appetizers
@@ -390,6 +422,14 @@ const Menu = () => {
               <TabsTrigger value="beverages" className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 Beverages
+              </TabsTrigger>
+              <TabsTrigger value="fruitsAndSalads" className="flex items-center gap-2">
+                <Star className="h-4 w-4" />
+                Salad & Fruits
+              </TabsTrigger>
+              <TabsTrigger value="packages" className="flex items-center gap-2">
+                <Users className="h-4 w-4" />
+                Packages
               </TabsTrigger>
             </TabsList>
             
@@ -421,6 +461,49 @@ const Menu = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {menuCategories.beverages.map((item, i) => (
                   <MenuCard key={i} item={item} category="beverages" />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="fruitsAndSalads" className="mt-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {menuCategories.fruitsAndSalads.map((item, i) => (
+                  <MenuCard key={i} item={item} category="fruitsAndSalads" />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="packages" className="mt-8">
+              <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                {specialMenus.map((menu, i) => (
+                  <Card key={i} className="card-elegant">
+                    <CardHeader>
+                      {menu.image ? (
+                        <img src={menu.image} alt={menu.name} className="w-full h-40 object-cover rounded-lg mb-4" />
+                      ) : (
+                        <div className="w-full h-40 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg mb-4 flex items-center justify-center">
+                          <ChefHat className="h-12 w-12 text-primary" />
+                        </div>
+                      )}
+                      <CardTitle className="text-lg font-playfair">{menu.name}</CardTitle>
+                      <CardDescription>{menu.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 mb-4">
+                        {menu.courses.map((c, idx) => (
+                          <div key={idx} className="text-sm text-foreground flex items-start">
+                            <Star className="h-4 w-4 text-secondary mt-1 mr-2" />
+                            <span>{c}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="border-t border-border pt-3">
+                        <div className="text-lg font-bold text-primary mb-1">{menu.price}</div>
+                        <div className="text-sm text-muted-foreground mb-3">{menu.minimum}</div>
+                        <Button className="btn-outline-elegant w-full">Select Package</Button>
+                      </div>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </TabsContent>
